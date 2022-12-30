@@ -1,0 +1,15 @@
+[Unit]
+Description=Minecraft Server
+After=network.target
+StartLimitIntervalSec=5
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/root/minecraft
+ExecStart=java -Xmx2048M -Xms2048M -jar server.jar nogui
+
+[Install]
+WantedBy=multi-user.target
