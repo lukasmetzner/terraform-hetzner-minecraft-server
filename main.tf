@@ -90,4 +90,8 @@ resource "hcloud_server" "minecraft-terraform" {
       "systemctl start minecraft",
     ]
   }
+
+  provisioner "local-exec" {
+    command = "echo ${self.ipv4_address} > minecraft-server-ip.txt"
+  }
 }
